@@ -22,6 +22,6 @@ FROM builder
 
 WORKDIR /app
 
-COPY --from=builder /app/ /app/
+COPY --from=builder /main/ /app/
 
 CMD ["./main"]
