@@ -1,7 +1,7 @@
 # Dockerfile References: https://docs.docker.com/engine/reference/builder/
 
 # Start from the latest golang base image
-FROM golang:alpine
+FROM golang:alpine as builder
 
 # Set the Current Working Directory inside the container
 WORKDIR /app
@@ -18,4 +18,10 @@ EXPOSE 8080
 #ENTRYPOINT ["/app"]
 
 # Command to run the executable
+FROM builder
+
+WORKDIR /app
+
+COPY --from=builder /app/ /app/
+
 CMD ["./main"]
