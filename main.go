@@ -10,6 +10,6 @@ func main() {
 	config := config.New()
 	e := router.New()
 	fmt.Println("Data =>", config.ConfigData)
-	port := fmt.Sprintf("%s%d", ":", config.ConfigData.Server.Port)
-	e.Logger.Fatal(e.Start(port))
+	//port := fmt.Sprintf("%s%d", ":", config.ConfigData.Server.Port)
+	e.Logger.Fatal(e.Start(":8080"))
 }
